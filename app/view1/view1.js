@@ -29,7 +29,7 @@ angular.module('myApp.view1', ['ngRoute'])
                 $scope.error = status;
                 $scope.calculating = false;
             };
-            // TODO: I know it could be done better but I dumped the apps env vars into the window
+            // TODO: I know it could be done better but I dumped the apps env vars into the window object
             $http.post($window.__env.apiUrl + '/add', { "number1": $scope.number1,  "number2": $scope.number2,}).then(onSuccess, onError);
 
 
