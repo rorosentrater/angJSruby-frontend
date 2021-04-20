@@ -1,0 +1,22 @@
+<h1 class="text-center">Super hard to calculate math problem that NEEDS to be done on the backend</h1>
+<br>
+<form class="text-center" ng-submit="calculate()">
+    <div class="">
+        <label for="number1" class="form-label">Number 1</label>
+        <input type="number" class="form-control text-center" id="number1" ng-model="number1">
+    </div>
+    <i class="bi-plus" style="font-size: 5rem;"></i>
+    <div class="mb-3">
+        <label for="number2" class="form-label">Number 2</label>
+        <input type="number" class="form-control text-center" id="number2" ng-model="number2">
+    </div>
+    <button type="submit" class="btn btn-primary w-100">~ CALCULATE ~</button>
+</form>
+
+<div class="text-center m-2">
+    <div class="spinner-border text-primary" role="status" ng-if="calculating">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+    <h1 ng-if="result">{{result}}</h1>
+</div>
+
