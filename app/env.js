@@ -3,5 +3,6 @@
 
     // API url
     window.__env.apiUrl = 'undefined';
-    
+    window.__env.chatWebsocketUrl = 'undefined';
+
 }(this));

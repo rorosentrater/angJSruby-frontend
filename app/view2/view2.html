@@ -4,3 +4,12 @@
   Showing of 'interpolate' filter:
   {{ 'Current version is v%VERSION%.' | interpolate }}
 </p>
+<br>
+<h1>Web socket message testing</h1>
+<button class="btn btn-primary" ng-click="socketTest()">Send message to websocket</button>
+<label>
+  <input type="text" ng-model="message">
+</label>
+<pre>
+  <p ng-repeat="message in messageLog track by $index">{{message}}</p>
+</pre>
