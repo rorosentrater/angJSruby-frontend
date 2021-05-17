@@ -15,8 +15,9 @@ require('dotenv').load();
 const envConfigFile = `(function (window) {
     window.__env = window.__env || {};
 
-    // API url
+    // API urls
     window.__env.apiUrl = '${process.env.BACKEND_ENDPOINT}';
+    window.__env.chatWebsocketUrl = '${process.env.BACKEND_WEBSOCKET}';
     
 }(this));`;
 console.log(colors.magenta('The file `.env` will be written with the following content: \n'));
