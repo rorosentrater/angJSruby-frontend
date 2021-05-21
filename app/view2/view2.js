@@ -1,14 +1,13 @@
 'use strict';
 
 angular.module('myApp.view2', ['ngRoute'])
-
-.config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/view2', {
-    templateUrl: 'view2/view2.html',
-    controller: 'View2Ctrl'
-  });
-}])
-
+  // if you were using the vanilla ngRoute router, you would probably config it something like this
+  // .config(['$routeProvider', function($routeProvider) {
+  //   $routeProvider.when('/view2', {
+  //     templateUrl: 'view2/view2.html',
+  //     controller: 'View2Ctrl'
+  //   });
+  // }])
 .controller('View2Ctrl', ['$scope', '$websocket', '$window', function($scope, $websocket, $window) {
 
   $scope.message = 'Hello World'; // default text. User can change
@@ -18,7 +17,7 @@ angular.module('myApp.view2', ['ngRoute'])
   var dataStream = $websocket($window.__env.chatWebsocketUrl);
 
   dataStream.onMessage(function(message) {
-    console.log('New message recieved:');
+    console.log('New message received:');
     console.log(message);
     $scope.messageLog.push(message.data);
   });

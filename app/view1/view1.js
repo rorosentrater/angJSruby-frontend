@@ -1,14 +1,13 @@
 'use strict';
 
 angular.module('myApp.view1', ['ngRoute'])
-
-    .config(['$routeProvider', function ($routeProvider) {
-        $routeProvider.when('/view1', {
-            templateUrl: 'view1/view1.html',
-            controller: 'View1Ctrl'
-        });
-    }])
-
+    // if you were using the vanilla ngRoute router, you would probably config it something like this
+    // .config(['$routeProvider', function ($routeProvider) {
+    //     $routeProvider.when('/view1', {
+    //         templateUrl: 'view1/view1.html',
+    //         controller: 'View1Ctrl'
+    //     });
+    // }])
     .controller('View1Ctrl', ['$scope', '$http', '$window', function ($scope, $http, $window) {
 
         $scope.number1 = 3;

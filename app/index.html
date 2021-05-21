@@ -36,10 +36,17 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="#!/view1">view1</a>
+          <!-- If we were using the vanilla ngRoute router, we would hard navigate to URLs using href like this: -->
+          <!-- <a class="nav-link" aria-current="page" href="#!/view1">view1</a> -->
+          <!-- ui.router uses states as well as urls. States can be assigned URLs. If we navigate to a state that has
+            an assigned URL, that will bring us to that state, at that URL. To link to a state we use ui-sref-->
+          <a class="nav-link" aria-current="page" ui-sref="view1">view1</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#!/view2">view2</a>
+          <a class="nav-link" ui-sref="view2">view2</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" ui-sref="view3">view3</a>
         </li>
       </ul>
     </div>
@@ -50,7 +57,10 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
 <main class="container">
-  <div ng-view></div>
+  <!-- If we were using the vanilla ngRoute router, we would output views like this: -->
+  <!-- <div ng-view></div> -->
+  <!-- ui.router does the same thing, it just uses a different name: -->
+  <div ui-view></div>
 </main>
 
 <!--  <div>AngularJS seed app: v<span app-version></span></div>-->
@@ -59,12 +69,14 @@
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
   -->
   <script src="lib/angular/angular.js"></script>
-  <script src="lib/angular-route/angular-route.js"></script>
+  <script src="lib/angular-route/angular-route.js"></script> <!-- Official angular router -->
+  <script src="lib/angular-ui-router/release/angular-ui-router.js"></script> <!-- 3rd party angular UI router -->
   <script src="lib/angular-websocket/dist/angular-websocket.js"></script>
   <script src="env.js"></script>
   <script src="app.js"></script>
   <script src="view1/view1.js"></script>
   <script src="view2/view2.js"></script>
+  <script src="view3/view3.js"></script>
   <script src="core/version/version.js"></script>
   <script src="core/version/version-directive.js"></script>
   <script src="core/version/interpolate-filter.js"></script>
