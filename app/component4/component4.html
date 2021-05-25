@@ -1,5 +1,23 @@
 <h1>component4</h1>
 <ul>
-    <li>param1: {{$ctrl.param1}}</li>
+    <li>myNumber: {{$ctrl.myNumber}}</li>
 </ul>
+<!-- We pass an object to the onNumberUpdate binding so it can be used as keyword arguments to whatever function is
+hooked up to listen to the onNumberUpdate in the parent state. -->
+<input type="number" ng-model="$ctrl.myNumber" ng-change="$ctrl.onNumberUpdate({ number: $ctrl.myNumber })">
+<p>Sweet. If I change the number in the .component4 state, it triggers the onNumberUpdate function in the .component3
+state...which just sets myNumber to the value it was given.</p>
+<p>We also could have just used a '=' binding to accomplish the same thing without needing an input and output binding.
+It's good to know how to do input/output though because it gives us more CONTROL over what we want to do when we notice
+a change to myNumber data. You can also probably see how you could pass data in only one direction by using only a single
+'<' (input) or '&' (output) binding.</p>
+<hr>
+<p>
+    OK another state lesson. Resolves. Let's say we didn't want to transition to a state until we loaded some data up
+    front. Perhaps we had a couple API calls that are all very slow and we don't want to load the
+    page/state/component until we have that data. We can use a state resolve to delay the state transition until
+    all async functions have been completed (or "resolved" in JS nomenclature. get it?).
+</p>
+<p>As an example, we are going to throw a settimeout function in the .component5 state to simulate waiting on a resolve</p>
+<button class="btn btn-primary" ng-click="$ctrl.goToState()">go to component5 state</button>
 <div ui-view></div>

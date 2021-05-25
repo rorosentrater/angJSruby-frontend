@@ -66,10 +66,16 @@ config([
         })
         .state('component1.component2.component3.component4', {
             component: 'component4',
+        })
+        .state('component1.component2.component3.component4.component5', {
+            component: 'component5',
             resolve: {
-                param1: function($transition$) {
-                    return $transition$.params().param1;
-                }}
+                // You can call on any Angular services you need in your resolve by using them as function params
+                // $timeout is a built-in angular service that just waits n number of milliseconds
+                result: function($timeout) {
+                    return $timeout( function(){return 'Done!';}, 2000 );
+                }
+            }
         })
 
     ;

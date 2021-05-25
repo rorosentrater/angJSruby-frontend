@@ -1,0 +1,14 @@
+<h1>component5</h1>
+<h5>Here is the result of that resolve function we had to wait on: {{$ctrl.result}}</h5>
+<p>All right, last thing we will demonstrate is how we can use relative state navigation to go UP the state tree.
+    You can of course transition to a state if you know the full name (component1.component2.component3 for example) but
+    You can also traverse up states kind of like a file tree system. If an ancestor exists, you can jump to the
+    parent state, grandparent, great grandparent etc. Each of these components have been made a child state of the
+    previous one so play with these buttons to get a feel for how the relative navigation works.</p>
+<ul>
+    <li><a ui-sref="^">Go to parent state ('^')</a></li>
+    <li><a ui-sref="^.^">Go to grandparent state ('^.^')</a></li>
+    <li><a ui-sref="^.^.^">Go to great grandparent state ('^.^.^')</a></li>
+    <li><a ui-sref="^.^.component4">Go to grandparent state and then a child state called ".component4" ('^.^.component4')</a></li>
+</ul>
+

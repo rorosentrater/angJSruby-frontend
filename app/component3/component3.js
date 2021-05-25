@@ -9,7 +9,15 @@ angular.module('myApp')
             this.myNumber = 4;
 
             this.goToState = function() {
-                $state.go('.component4', {param1: this.myNumber});
+                $state.go('.component4', {myNumber: this.myNumber});
+            };
+
+            this.handleNumberUpdate = function (updatedNumber) {
+              console.log('handleNumberUpdate called');
+                this.myNumber = updatedNumber;
+                // Having a callback function gives us more control over how we want to handle number updates. Instead
+                // of just copying the current value of myNumber as set by .component4, we could add 1 on top of that.
+                // this.myNumber = updatedNumber + 1;
             };
         },
     });

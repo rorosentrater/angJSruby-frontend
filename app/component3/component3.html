@@ -5,9 +5,12 @@
 </ul>
 <p>Nice, the number was successfully passed in as param1, and it looks like param2 is using the default value.
 What if I change the number in component2 though? Go ahead. Try it. The param in component 3 doesn't update! LAME!</p>
-<p>OK so params are good for sending data once on the state transition, but what if I wanted updates to the source
-of param1 to be reflected in this state as well? You use resolves & bindings. Here let's make another number input and
-this time we'll put a resolve on the state instead of params, and then bind to that resolve in component4</p>
+<p>OK so state params are good for sending data once on the state transition, but what if I wanted updates to the source
+of my data to be reflected in this parent state as well? You use bindings. Here let's make another number input and
+this time we'll pass the number as a "myNumber" input binding, and then listen for an "onNumberUpdate" output binding.
+</p>
 <button class="btn btn-primary" ng-click="$ctrl.goToState()">go to component4 state</button>
 <input type="number" ng-model="$ctrl.myNumber">
-<div ui-view></div>
+<!-- Important note here. Our binding names are "myNumber" and "onNumberUpdate" in component4 but in order to
+ properly link the ui-view to those same bindings, we have to use kebab-case-like-this -->
+<div ui-view my-number="$ctrl.myNumber" on-number-update="$ctrl.handleNumberUpdate(number)"></div>
