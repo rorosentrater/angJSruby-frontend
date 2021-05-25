@@ -1,0 +1,13 @@
+<h1>component3</h1>
+<ul>
+    <li>param1: {{$ctrl.param1}}</li>
+    <li>param2: {{$ctrl.param2}}</li>
+</ul>
+<p>Nice, the number was successfully passed in as param1, and it looks like param2 is using the default value.
+What if I change the number in component2 though? Go ahead. Try it. The param in component 3 doesn't update! LAME!</p>
+<p>OK so params are good for sending data once on the state transition, but what if I wanted updates to the source
+of param1 to be reflected in this state as well? You use resolves & bindings. Here let's make another number input and
+this time we'll put a resolve on the state instead of params, and then bind to that resolve in component4</p>
+<button class="btn btn-primary" ng-click="$ctrl.goToState()">go to component4 state</button>
+<input type="number" ng-model="$ctrl.myNumber">
+<div ui-view></div>
